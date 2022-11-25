@@ -1,0 +1,257 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  background: rgb(10, 12, 19);
+  font-family: "DM Sans", sans-serif;
+  color: rgba(246, 245, 247, 0.8);
+}
+
+* {
+  z-index: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.head-300 {
+  font-size: 16px;
+  font-weight: 500;
+  font-family: Sora, "sans-serif";
+  color: #fdfdfd;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
+}
+
+.head-400 {
+  font-size: 18px;
+  font-weight: 600;
+  font-family: Sora, "sans-serif";
+  color: #fdfdfd;
+
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+  }
+}
+
+.head-500 {
+  font-size: 28px;
+  font-weight: 600;
+  font-family: Sora, "sans-serif";
+  color: #fdfdfd;
+
+  @media screen and (min-width: 768px) {
+    font-size: 36px;
+  }
+}
+
+.body-500 {
+  font-size: 16px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
+}
+
+.card-collection {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -64px;
+  display: flex;
+  gap: 32px;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 12px;
+    margin-right: 12px;
+    gap: 32px;
+  }
+}
+
+#header {
+  z-index: 999;
+  width: 100vw;
+  position: fixed;
+  backdrop-filter: blur(10px);
+  background: rgba(10, 12, 19, 0.3);
+  > .header-body {
+    max-width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    height: 72px;
+    align-items: center;
+
+    > .desktop-side {
+      display: none;
+
+      gap: 16px;
+    }
+
+    > .mobile-side {
+      display: block;
+    }
+
+    @media screen and (min-width: 768px) {
+      max-width: 85vw;
+      > .mobile-side {
+        display: none;
+      }
+
+      > .desktop-side {
+        display: flex;
+      }
+    }
+
+    @media screen and (min-width: 1400px) {
+      max-width: 1400px;
+    }
+  }
+
+  > #mobile-drop {
+    margin-bottom: 16px;
+    max-width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 18px;
+    align-items: center;
+    flex-direction: column;
+    gap: 8px;
+
+    > .drop-item {
+      text-decoration: none;
+      color: #fdfdfd;
+      font-weight: 500;
+      transition: color 100ms ease-in-out;
+
+      &:focus,
+      &:focus-visible,
+      &:hover {
+        color: rgba(255, 0, 111, 0.808);
+      }
+    }
+
+    > * {
+      width: fit-content;
+    }
+  }
+}
+
+#hero-section {
+  z-index: 0;
+  width: 100vw;
+  height: 90vh;
+  background: radial-gradient(
+      circle at top left,
+      rgba(255, 0, 110, 0.2),
+      transparent 50vw
+    ),
+    radial-gradient(
+      farthest-corner at top right,
+      rgba(251, 86, 7, 0.2),
+      transparent 50vw
+    ),
+    radial-gradient(
+      farthest-corner at bottom right,
+      rgba(131, 56, 236, 0.1),
+      transparent 80vw
+    );
+}
+
+.flex-center {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.gap-16 {
+  gap: 16px;
+}
+
+.featured-card {
+  background-color: rgb(22, 27, 34);
+  padding: 32px;
+  border-radius: 8px;
+  width: fit-content;
+  border: 1px solid rgb(48, 54, 61);
+}
+
+.button {
+  position: relative;
+  appearance: none;
+  background: transparent;
+  font-family: "Sora", sans-serif;
+  color: rgba(246, 245, 247, 0.8);
+  padding: 0.65em 1.1em;
+  display: block;
+  border: none;
+  text-decoration: none;
+  width: fit-content;
+  color: white;
+  border: 2px solid rgba(255, 0, 110, 0.2);
+  font-size: 0.8em;
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+  border-radius: 8px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 1em;
+  }
+
+  span {
+    position: relative;
+    pointer-events: none;
+  }
+
+  &::before {
+    --size: 0;
+
+    content: "";
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--size);
+    height: var(--size);
+    background: radial-gradient(
+      circle closest-side,
+      rgba(255, 0, 110, 0.15),
+      transparent
+    );
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease;
+  }
+
+  &:hover::before {
+    --size: 170px;
+  }
+
+  &.sm {
+    font-size: 0.65em;
+
+    @media screen and (min-width: 768px) {
+      font-size: 0.8em;
+    }
+
+    &:hover::before {
+      --size: 120px;
+    }
+  }
+}
