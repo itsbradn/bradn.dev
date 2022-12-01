@@ -2,7 +2,7 @@
   <header id="header">
     <div class="header-body">
       <div>
-        <h1 class="head-400">bradn</h1>
+        <h1 class="head-400">braden</h1>
       </div>
       <div class="desktop-side">
         <NuxtLink to="coming" class="button"><span>login</span></NuxtLink>

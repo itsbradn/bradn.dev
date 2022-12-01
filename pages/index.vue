@@ -72,6 +72,28 @@
 </template>
 
 <script setup>
+useHead({
+  title: "braden — Software & Tools",
+  meta: [
+    { name: "title", content: "braden — Software & Tools" },
+    {
+      name: "description",
+      content:
+        "Use any of my various tools & software or learn from my public code.",
+    },
+    { name: "twitter:title", content: "braden — Software & Tools" },
+    {
+      name: "twitter:description",
+      content:
+        "Use any of my various tools & software or learn from my public code.",
+    },
+    {
+      name: "theme-color",
+      content: "#2D0B21",
+    },
+  ],
+});
+
 onMounted(() => {
   const header = document.getElementById("header");
   const heroBody = document.getElementById("hero-body");
